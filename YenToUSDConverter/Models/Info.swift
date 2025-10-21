@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct Info: Codable {
+    let timestamp: Int
+    let rate: Double
+}

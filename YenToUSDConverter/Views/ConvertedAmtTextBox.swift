@@ -8,11 +8,43 @@
 import SwiftUI
 
 struct ConvertedAmtTextBox: View {
+    @Binding var amtConverted: Double
+    @Binding var usdAmt: Double
+    @Binding var isDoneConverting: Bool
+    @Binding var showResetButton: Bool
+    @FocusState private var isFocused: Bool
+    
+    var convertedType: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TextField("Enter Amount :)", value: $amtConverted, format: .number) 
+            .foregroundStyle(Color.white)
+            .keyboardType(.decimalPad)
+            .focused($isFocused)
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Done") {
+                        isFocused = false
+                        Task {
+                            usdAmt = try await getConversion(amt: amtConverted, conversionType: convertedType)
+                            if usdAmt > 0 {
+                                isDoneConverting = true
+                                showResetButton = true
+                            }
+                        }
+                    }
+                }
+            }
+            .padding()
+            .frame(maxWidth: .infinity, minHeight: 55)
+            .background(
+                RoundedRectangle(cornerRadius: 25.0)
+                    .stroke(Color.cyan)
+            )
+        
+        
     }
 }
-
 #Preview {
-    ConvertedAmtTextBox()
+    ConvertedAmtTextBox(amtConverted: .constant(0.0), usdAmt: .constant(0.0), isDoneConverting: .constant(false), showResetButton: .constant(true), convertedType: "JPY")
 }

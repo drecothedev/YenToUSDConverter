@@ -6,10 +6,25 @@
 //
 
 import SwiftUI
+internal import Combine
 
 struct CelebratingOtter: View {
+    @State private var yOffset: Double = 0
+    let celebratinOtter: Image = Image("CelebratingOtter")
+    let timer = Timer.publish(every: 0.7, on: .main, in: .common).autoconnect()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        celebratinOtter
+            .resizable()
+            .frame(width: 100, height: 100)
+            .offset(y: yOffset)
+            .animation(.spring, value: yOffset)
+            .onReceive(timer) { _ in
+                if yOffset == 0.0 {
+                    yOffset -= 20
+                } else {
+                    yOffset = 0
+                }
+            }
     }
 }
 

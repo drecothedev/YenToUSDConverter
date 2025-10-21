@@ -8,11 +8,35 @@
 import SwiftUI
 
 struct PopoverView: View {
+    @Binding var selectedCurrency: String
+    @Binding var showPicker: Bool
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Select an Option")
+                .font(.headline)
+                .padding(.bottom, 5)
+            
+            Picker("Currencies", selection: $selectedCurrency) {
+                ForEach(CurrencyType.allCases, id: \.self) { currency in
+                    Text(currency.rawValue)
+                        .tag(currency.rawValue)
+                }
+            }
+            .pickerStyle(.inline)
+            
+            Divider()
+            
+            Button("Done") {
+                showPicker = false
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 8)
+        }
+        .padding()
+        .frame(width: 250)
     }
 }
 
 #Preview {
-    PopoverView()
+    PopoverView(selectedCurrency: .constant("JPY"), showPicker: .constant(true))
 }

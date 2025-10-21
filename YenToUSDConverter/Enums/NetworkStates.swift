@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+enum NetworkStates {
+    case online, offline, performingService
+}

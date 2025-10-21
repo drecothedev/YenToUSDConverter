@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct TestConnectionView: View {
+    @StateObject var networkManager = NetworkObserver()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button("TEST CONNECTION") {
+            networkManager.startMonitor()
+            networkManager.readMonitor()
+        }
     }
 }
 

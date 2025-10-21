@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct USDTextBox: View {
+    var amtToConvert: Double
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(amtToConvert.formatted(.currency(code: "USD")))
+            .padding()
+            .foregroundStyle(Color.white)
+            .frame(maxWidth: .infinity, minHeight: 55)
+            .background(
+                RoundedRectangle(cornerRadius: 25.0)
+                    .stroke(Color.cyan)
+                )
     }
 }
 
+
 #Preview {
-    USDTextBox()
+    USDTextBox(amtToConvert: 0.0)
 }

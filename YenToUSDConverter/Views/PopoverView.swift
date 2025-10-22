@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Picker View for choosing the currency
 struct PopoverView: View {
     @Binding var selectedCurrency: String
     @Binding var showPicker: Bool

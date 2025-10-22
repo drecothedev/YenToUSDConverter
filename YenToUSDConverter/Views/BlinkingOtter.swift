@@ -6,7 +6,7 @@
 //
 internal import Combine
 import SwiftUI
-
+// This view is responsible for showing the user the app is ready to process their request. The view chooses between two different otters, one with its eyes open and one with its eyes closed, simulating blinking. 
 struct BlinkingOtter: View {
     @State private var isBlinking = false
     

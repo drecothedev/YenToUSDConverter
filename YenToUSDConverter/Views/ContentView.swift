@@ -9,6 +9,7 @@ internal import Combine
 import Network
 import SwiftUI
 
+// Since the app doesn't need much navigation, I built the ContentView as the main view for the app. This view handles passing data to its child views, updating child views, checking network connection, and network request.
 struct ContentView: View {
     @StateObject var networkManager = NetworkObserver()
     @State private var isConnected: Bool = false
@@ -117,6 +118,7 @@ struct ContentView: View {
             }
         }
     }
+    // Function to reset the all of the fields except for the current yen the user chose to convert from.
     func resetParameters() {
         isDoneConverting = false
         usdAmt = 0.0

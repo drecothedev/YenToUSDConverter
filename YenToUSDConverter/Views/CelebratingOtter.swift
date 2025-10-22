@@ -8,6 +8,7 @@
 import SwiftUI
 internal import Combine
 
+// This view is responsible for showing the user the currency conversion was successful. The otter "jumps" up and down. To simulate that I implemented a timer that controls the yPos of the otter. 
 struct CelebratingOtter: View {
     @State private var yOffset: Double = 0
     let celebratinOtter: Image = Image("CelebratingOtter")

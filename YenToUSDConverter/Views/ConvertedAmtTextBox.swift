@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// The amount that is sending out to be converted to USD
 struct ConvertedAmtTextBox: View {
     @Binding var amtConverted: Double
     @Binding var usdAmt: Double

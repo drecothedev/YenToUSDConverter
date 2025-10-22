@@ -22,3 +22,9 @@ Tech Stack
 - **Framework:** SwiftUI  
 - **IDE:** Xcode  
 - **Platform:** iOS  
+
+
+![IMG_1888](https://github.com/user-attachments/assets/fce572c8-d0f1-4f45-b0a6-468dbd042a62)
+![IMG_1886](https://github.com/user-attachments/assets/06b729ea-97ba-4464-ac81-34d727cbcd04)
+![IMG_1884](https://github.com/user-attachments/assets/99acb015-f4c7-491a-a426-0a5166213df7)
+![IMG_1885](https://github.com/user-attachments/assets/1cc5248e-f0a5-46ed-98d7-f5b535d4102c)
